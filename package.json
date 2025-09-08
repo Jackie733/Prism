@@ -6,6 +6,7 @@
     "dev:docs": "pnpm -C apps/docs dev",
     "build": "pnpm -r --filter \"./packages/*\" run build",
     "build:types": "pnpm -r --filter \"./packages/*\" run types",
+    "release": "pnpm -C packages/components publish --access public --no-git-checks",
     "lint": "echo \"(add eslint if you want)\" && exit 0"
   },
   "devDependencies": {
