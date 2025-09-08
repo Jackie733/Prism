@@ -6,8 +6,5 @@
     "**/*.md",
     ".vitepress/**/*",
     "vite-env.d.ts"
-  ],
-  "compilerOptions": {
-    "types": []
-  }
+  ]
 }

@@ -1,4 +1,3 @@
-import path from 'node:path';
 import vue from '@vitejs/plugin-vue';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -45,13 +44,19 @@ export default [
     input,
     plugins: [
       {
-        name: 'banner',
-        renderChunk: (code) => `/* @prism/components */\n` + code,
+        name: 'header-and-style-import',
+        renderChunk(code, chunk, outputOptions) {
+          const header = '/* @prism/components */\n';
+          if (outputOptions.format === 'es') {
+            return header + "import './themes.css';\n" + code;
+          }
+          return header + code;
+        },
       },
       vue(),
       inlineVueCss(),
       tsTranspile(),
-      resolve(),
+      resolve({ extensions: ['.mjs', '.js', '.json', '.ts', '.tsx', '.vue'] }),
       commonjs(),
     ],
     external: ['vue'],

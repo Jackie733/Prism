@@ -13,7 +13,6 @@
       "@prism/core/*": ["packages/core/src/*"],
       "@prism/tokens": ["packages/tokens/src/index.ts"],
       "@prism/tokens/*": ["packages/tokens/src/*"]
-    },
-    "types": ["vite/client"]
+    }
   }
 }
