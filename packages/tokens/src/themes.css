@@ -1,0 +1,227 @@
+@layer tokens {
+  /* ========================= 1) PRIMITIVES ========================= */
+  :root {
+    --pr-gray-50: #f8fafc;
+    --pr-gray-100: #f1f5f9;
+    --pr-gray-200: #e5e7eb;
+    --pr-gray-300: #d1d5db;
+    --pr-gray-400: #9ca3af;
+    --pr-gray-500: #6b7280;
+    --pr-gray-600: #4b5563;
+    --pr-gray-700: #374151;
+    --pr-gray-800: #1f2937;
+    --pr-gray-900: #0b1220;
+
+    --pr-red-6: #ef4444;
+    --pr-orange-6: #f59e0b;
+    --pr-yellow-6: #eab308;
+    --pr-lime-6: #65a30d;
+    --pr-green-6: #16a34a;
+    --pr-teal-6: #14b8a6;
+    --pr-cyan-6: #06b6d4;
+    --pr-blue-6: #2563eb;
+    --pr-indigo-6: #4f46e5;
+    --pr-violet-6: #7c3aed;
+    --pr-magenta-6: #db2777;
+
+    --pr-font-sans: ui-sans-serif, -apple-system, Segoe UI, Roboto,
+      'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', 'Segoe UI Emoji',
+      'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+    --pr-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      'Liberation Mono', 'Courier New', monospace;
+
+    --pr-fs-xs: 12px;
+    --pr-fs-sm: 13px;
+    --pr-fs-md: 14px;
+    --pr-fs-lg: 16px;
+    --pr-fs-xl: 18px;
+
+    --pr-lh-tight: 1.25;
+    --pr-lh-normal: 1.4;
+    --pr-lh-loose: 1.6;
+
+    --pr-space-0: 0;
+    --pr-space-1: 2px;
+    --pr-space-2: 6px;
+    --pr-space-3: 10px;
+    --pr-space-4: 14px;
+    --pr-space-5: 18px;
+    --pr-space-6: 22px;
+    --pr-space-7: 26px;
+
+    --pr-ctl-h-sm: 28px;
+    --pr-ctl-h-md: 32px;
+    --pr-ctl-h-lg: 36px;
+
+    --pr-radius-sm: 2px;
+    --pr-radius-md: 4px;
+    --pr-radius-lg: 8px;
+
+    --pr-border-weak: 1px solid var(--pr-gray-300);
+    --pr-border-strong: 1px solid var(--pr-gray-400);
+
+    --pr-shadow-0: none;
+    --pr-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.08);
+    --pr-shadow-2: 0 6px 18px rgba(2, 6, 23, 0.12);
+    --pr-shadow-3: 0 10px 32px rgba(2, 6, 23, 0.18);
+
+    --pr-z-base: 0;
+    --pr-z-sticky: 100;
+    --pr-z-dropdown: 1000;
+    --pr-z-modal: 1100;
+    --pr-z-popover: 1200;
+    --pr-z-toast: 1300;
+
+    --pr-dur-100: 100ms;
+    --pr-dur-150: 150ms;
+    --pr-dur-200: 200ms;
+    --pr-dur-250: 250ms;
+    --pr-dur-300: 300ms;
+    --pr-dur-400: 400ms;
+    --pr-dur-600: 600ms;
+
+    --pr-ease-linear: linear;
+    --pr-ease: ease;
+    --pr-ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+    --pr-ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    --pr-focus-ring: 0 0 0 2px rgba(37, 99, 235, 0.35);
+  }
+
+  /* =========================== 2) SEMANTIC =========================== */
+  :root {
+    color-scheme: light dark;
+
+    --pr-bg: var(--pr-gray-50);
+    --pr-surface: #ffffff;
+    --pr-fg: var(--pr-gray-900);
+    --pr-muted: var(--pr-gray-500);
+    --pr-border: var(--pr-gray-300);
+
+    --pr-primary: var(--pr-blue-6);
+    --pr-on-primary: #ffffff;
+
+    --pr-success: var(--pr-green-6);
+    --pr-on-success: #ffffff;
+
+    --pr-warning: var(--pr-orange-6);
+    --pr-on-warning: #111827;
+
+    --pr-danger: var(--pr-red-6);
+    --pr-on-danger: #ffffff;
+
+    --pr-info: var(--pr-indigo-6);
+    --pr-on-info: #ffffff;
+
+    /* Neutral (semantic, for subtle UIs such as intent="none") */
+    --pr-neutral: var(--pr-gray-200);
+    --pr-on-neutral: var(--pr-gray-800);
+    --pr-neutral-border: var(--pr-gray-300);
+
+    --pr-anim-dur: var(--pr-dur-250);
+    --pr-anim-ease: var(--pr-ease-out-cubic);
+
+    --pr-density: compact; /* compact | cozy | spacious */
+
+    /* Hover/Active semantic tokens (light) */
+    --pr-primary-hover: color-mix(in oklab, var(--pr-primary) 92%, black);
+    --pr-primary-active: color-mix(in oklab, var(--pr-primary) 86%, black);
+    --pr-success-hover: color-mix(in oklab, var(--pr-success) 92%, black);
+    --pr-success-active: color-mix(in oklab, var(--pr-success) 86%, black);
+    --pr-warning-hover: color-mix(in oklab, var(--pr-warning) 92%, black);
+    --pr-warning-active: color-mix(in oklab, var(--pr-warning) 86%, black);
+    --pr-danger-hover: color-mix(in oklab, var(--pr-danger) 92%, black);
+    --pr-danger-active: color-mix(in oklab, var(--pr-danger) 86%, black);
+    --pr-info-hover: color-mix(in oklab, var(--pr-info) 92%, black);
+    --pr-info-active: color-mix(in oklab, var(--pr-info) 86%, black);
+
+    --pr-neutral-hover: color-mix(in oklab, var(--pr-neutral) 92%, black);
+    --pr-neutral-active: color-mix(in oklab, var(--pr-neutral) 86%, black);
+  }
+
+  :root[data-theme='dark'] {
+    --pr-bg: #0b1220;
+    --pr-surface: #0f172a;
+    --pr-fg: #e5e7eb;
+    --pr-muted: #9ca3af;
+    --pr-border: #253049;
+
+    --pr-primary: #60a5fa;
+    --pr-on-primary: #0b1220;
+
+    --pr-success: #22c55e;
+    --pr-on-success: #06220f;
+
+    --pr-warning: #f59e0b;
+    --pr-on-warning: #0b1220;
+
+    --pr-danger: #f87171;
+    --pr-on-danger: #0b1220;
+
+    --pr-info: #818cf8;
+    --pr-on-info: #0b1220;
+
+    /* Neutral tokens for dark theme */
+    --pr-neutral: var(--pr-gray-700);
+    --pr-on-neutral: var(--pr-gray-100);
+    --pr-neutral-border: var(--pr-gray-600);
+    /* Hover/Active semantic tokens (dark) */
+    --pr-primary-hover: color-mix(in oklab, var(--pr-primary) 92%, black);
+    --pr-primary-active: color-mix(in oklab, var(--pr-primary) 86%, black);
+    --pr-success-hover: color-mix(in oklab, var(--pr-success) 92%, black);
+    --pr-success-active: color-mix(in oklab, var(--pr-success) 86%, black);
+    --pr-warning-hover: color-mix(in oklab, var(--pr-warning) 92%, black);
+    --pr-warning-active: color-mix(in oklab, var(--pr-warning) 86%, black);
+    --pr-danger-hover: color-mix(in oklab, var(--pr-danger) 92%, black);
+    --pr-danger-active: color-mix(in oklab, var(--pr-danger) 86%, black);
+    --pr-info-hover: color-mix(in oklab, var(--pr-info) 92%, black);
+    --pr-info-active: color-mix(in oklab, var(--pr-info) 86%, black);
+
+    --pr-neutral-hover: color-mix(in oklab, var(--pr-neutral) 92%, black);
+    --pr-neutral-active: color-mix(in oklab, var(--pr-neutral) 86%, black);
+  }
+
+  :root[data-contrast='high'] {
+    --pr-border: var(--pr-gray-400);
+    --pr-focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.5);
+  }
+
+  html,
+  body {
+    background: var(--pr-bg);
+    color: var(--pr-fg);
+    font-family: var(--pr-font-sans);
+    font-size: var(--pr-fs-md);
+    line-height: var(--pr-lh-normal);
+  }
+  *:focus-visible {
+    outline: none;
+    box-shadow: var(--pr-focus-ring);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .pr-hover {
+      transition: background-color var(--pr-dur-200) var(--pr-ease),
+        color var(--pr-dur-200) var(--pr-ease),
+        opacity var(--pr-dur-200) var(--pr-ease);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --pr-anim-dur: 1ms;
+      --pr-dur-100: 1ms;
+      --pr-dur-150: 1ms;
+      --pr-dur-200: 1ms;
+      --pr-dur-250: 1ms;
+      --pr-dur-300: 1ms;
+      --pr-dur-400: 1ms;
+      --pr-dur-600: 1ms;
+    }
+    * {
+      animation: none !important;
+      transition-duration: 1ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "preserve",
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@prism/components": ["packages/components/src/index.ts"],
+      "@prism/components/*": ["packages/components/src/*"],
+      "@prism/core": ["packages/core/src/index.ts"],
+      "@prism/core/*": ["packages/core/src/*"],
+      "@prism/tokens": ["packages/tokens/src/index.ts"],
+      "@prism/tokens/*": ["packages/tokens/src/*"]
+    },
+    "types": ["vite/client"]
+  }
+}

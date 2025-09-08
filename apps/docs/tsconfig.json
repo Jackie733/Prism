@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": [
+    "**/*.ts",
+    "**/*.vue",
+    "**/*.md",
+    ".vitepress/**/*",
+    "vite-env.d.ts"
+  ],
+  "compilerOptions": {
+    "types": []
+  }
+}

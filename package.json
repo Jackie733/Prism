@@ -1,0 +1,16 @@
+{
+  "name": "prism",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev:docs": "pnpm -C apps/docs dev",
+    "build": "pnpm -r --filter ./packages/* run build",
+    "build:types": "pnpm -r --filter ./packages/* run types",
+    "lint": "echo \"(add eslint if you want)\" && exit 0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.5.0",
+    "vue-tsc": "^3.0.6"
+  }
+}
