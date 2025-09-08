@@ -3,7 +3,7 @@
 基础用法：
 
 <script setup>
-import { Button } from '@prism/components'
+import { Button } from '@jackie733/prism'
 </script>
 
 ### 基础

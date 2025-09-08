@@ -1,6 +1,6 @@
 import DefaultTheme from 'vitepress/theme';
-// Use package export for CSS tokens (no /src coupling)
-import '@prism/tokens/themes.css';
+// Use the component package CSS export (dev alias maps to tokens/src)
+import '@jackie733/prism/themes.css';
 export default {
   ...DefaultTheme,
 };

@@ -1,5 +1,5 @@
 {
-  "name": "@prism/components",
+  "name": "@jackie733/prism",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -10,17 +10,25 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./themes.css": "./dist/themes.css"
   },
   "files": [
     "dist"
   ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "vue": "^3.4.0"
   },
   "scripts": {
-    "build": "rimraf dist && rollup -c",
-    "types": "vue-tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist"
+    "clean": "rimraf dist",
+    "build": "rimraf dist && rollup -c && pnpm run copy:themes",
+    "types": "vue-tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist",
+    "copy:themes": "node ./scripts/copy-themes.js",
+    "prepublishOnly": "pnpm run build && pnpm run types"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",

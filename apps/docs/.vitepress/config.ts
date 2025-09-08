@@ -24,11 +24,29 @@ export default defineConfig({
   },
   vite: {
     resolve: {
-      alias: {
-        '@prism/components': fileURLToPath(
-          new URL('../../../packages/components/src/index.ts', import.meta.url)
-        ),
-      },
+      alias: [
+        // Map CSS export to tokens source first (more specific match)
+        {
+          find: '@jackie733/prism/themes.css',
+          replacement: fileURLToPath(
+            new URL('../../../packages/tokens/src/themes.css', import.meta.url)
+          ),
+        },
+        // Map package entry to components source for local dev
+        {
+          find: '@jackie733/prism',
+          replacement: fileURLToPath(
+            new URL('../../../packages/components/src/index.ts', import.meta.url)
+          ),
+        },
+        // Keep legacy internal alias if referenced somewhere
+        {
+          find: '@prism/components',
+          replacement: fileURLToPath(
+            new URL('../../../packages/components/src/index.ts', import.meta.url)
+          ),
+        },
+      ],
     },
     css: {
       preprocessorOptions: {},

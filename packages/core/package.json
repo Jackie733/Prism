@@ -1,5 +1,6 @@
 {
-  "name": "@prism/core",
+  "name": "prism-core",
+  "private": true,
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -15,9 +16,13 @@
   "files": [
     "dist"
   ],
+  "sideEffects": false,
+  
   "scripts": {
+    "clean": "rimraf dist",
     "build": "tsc -p tsconfig.json",
-    "types": "tsc -p tsconfig.json"
+    "types": "tsc -p tsconfig.json",
+    "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
     "typescript": "^5.5.0"

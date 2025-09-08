@@ -8,7 +8,7 @@
     "serve": "vitepress serve"
   },
   "dependencies": {
-    "@prism/tokens": "workspace:*",
+    "@jackie733/prism": "workspace:*",
     "vitepress": "^1.4.0",
     "vue": "^3.4.0"
   },

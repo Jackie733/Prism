@@ -4,7 +4,7 @@
 
 - Monorepo managed by `pnpm` workspaces.
 - Apps: `apps/docs` (VitePress site for local demos and docs).
-- Packages: `packages/components` (Vue UI), `packages/core` (utils/composables), `packages/tokens` (design tokens + CSS themes).
+- Packages: `packages/components` (Vue UI), `packages/core` (utils/composables, internal), `packages/tokens` (design tokens + CSS themes, internal).
 - TypeScript base config: `tsconfig.base.json` (path aliases to source for instant docs dev).
 - Workspace config: `pnpm-workspace.yaml`.
 
@@ -12,7 +12,7 @@
 
 - Install: `pnpm i` (root). Uses `pnpm@9`.
 - Run docs locally: `pnpm dev:docs` → http://localhost:5173
-- Build all packages: `pnpm build` (runs each package’s `build`).
+- Build all packages: `pnpm build` (runs each package’s `build`). Components build also copies `themes.css` so consumers can import it from the same package.
 - Type definitions: `pnpm build:types`.
 - Package-specific: `pnpm -C packages/components build`, `pnpm -C apps/docs build`.
 
@@ -21,7 +21,8 @@
 - Language: TypeScript + Vue 3 (`<script setup lang="ts">`). Strict mode enabled.
 - Indentation: 2 spaces; include semicolons; single quotes preferred.
 - Components: PascalCase files inside a lowercase folder, exported from an index, e.g. `packages/components/src/button/Button.vue` and `src/index.ts` exporting `Button`.
-- Import via aliases: `@prism/components`, `@prism/core`, `@prism/tokens` (defined in `tsconfig.base.json`). In docs, import from aliases (not built `dist`).
+- Import via aliases (internal dev): `@prism/components`, `@prism/core`, `@prism/tokens` (defined in `tsconfig.base.json`).
+- Consumer import names (published): `@jackie733/prism` and `@jackie733/prism/themes.css`.
 - Lint/format: ESLint/Prettier are not configured yet; keep changes minimal and stylistically consistent with existing files.
 
 ## Testing Guidelines
