@@ -7,30 +7,30 @@
 @layer tokens {
   /* ========================= 1) PRIMITIVES ========================= */
   :root {
-    /* Grayscale (neutral foundation) */
-    --pr-gray-50: #f8fafc;
-    --pr-gray-100: #f1f5f9;
-    --pr-gray-200: #e5e7eb;
-    --pr-gray-300: #d1d5db;
-    --pr-gray-400: #9ca3af;
-    --pr-gray-500: #6b7280;
-    --pr-gray-600: #4b5563;
-    --pr-gray-700: #374151;
-    --pr-gray-800: #1f2937;
-    --pr-gray-900: #0b1220;
+    /* Grayscale (sophisticated neutral foundation) */
+    --pr-gray-50: #fafbfc;
+    --pr-gray-100: #f4f6f8;
+    --pr-gray-200: #e8eaed;
+    --pr-gray-300: #d2d6db;
+    --pr-gray-400: #9aa0a6;
+    --pr-gray-500: #5f6368;
+    --pr-gray-600: #3c4043;
+    --pr-gray-700: #202124;
+    --pr-gray-800: #171717;
+    --pr-gray-900: #0d0f10;
 
-    /* Accent hues (brand palette mid tones) */
-    --pr-red-6: #ef4444;
-    --pr-orange-6: #f59e0b;
-    --pr-yellow-6: #eab308;
-    --pr-lime-6: #65a30d;
-    --pr-green-6: #16a34a;
-    --pr-teal-6: #14b8a6;
-    --pr-cyan-6: #06b6d4;
-    --pr-blue-6: #2563eb;
-    --pr-indigo-6: #4f46e5;
-    --pr-violet-6: #7c3aed;
-    --pr-magenta-6: #db2777;
+    /* Professional accent palette (refined and purposeful) */
+    --pr-red-6: #d73502; /* Medical red - serious, clinical */
+    --pr-orange-6: #cc6d00; /* Amber warning - professional amber */
+    --pr-yellow-6: #b8860b; /* Dark gold - sophisticated warning */
+    --pr-lime-6: #557b00; /* Muted olive - natural, subtle */
+    --pr-green-6: #0d7a47; /* Forest green - confident, stable */
+    --pr-teal-6: #047481; /* Deep teal - medical/tech */
+    --pr-cyan-6: #0f5f8c; /* Steel blue - professional */
+    --pr-blue-6: #1a5490; /* Navy blue - trustworthy, corporate */
+    --pr-indigo-6: #3f3f96; /* Deep indigo - sophisticated */
+    --pr-violet-6: #5f3dc4; /* Royal purple - premium */
+    --pr-magenta-6: #a61e69; /* Deep magenta - creative, serious */
 
     /* Font stacks */
     --pr-font-sans: ui-sans-serif, -apple-system, Segoe UI, Roboto,
@@ -79,9 +79,9 @@
     --pr-ctl-h-lg: 36px;
 
     /* Radii (rounded corners) */
-    --pr-radius-sm: 2px;
-    --pr-radius-md: 4px;
-    --pr-radius-lg: 8px;
+    --pr-radius-sm: 1px;
+    --pr-radius-md: 2px;
+    --pr-radius-lg: 4px;
 
     /* Borders */
     --pr-border-weak: 1px solid var(--pr-gray-300);
@@ -89,11 +89,11 @@
     --pr-border-w-1: 1px;
     --pr-border-w-2: 2px;
 
-    /* Elevation (shadows) */
+    /* Elevation (shadows) - refined for minimal design */
     --pr-shadow-0: none;
-    --pr-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.08);
-    --pr-shadow-2: 0 6px 18px rgba(2, 6, 23, 0.12);
-    --pr-shadow-3: 0 10px 32px rgba(2, 6, 23, 0.18);
+    --pr-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.06);
+    --pr-shadow-2: 0 2px 4px rgba(0, 0, 0, 0.06), 0 4px 6px rgba(0, 0, 0, 0.04);
+    --pr-shadow-3: 0 4px 8px rgba(0, 0, 0, 0.08), 0 6px 20px rgba(0, 0, 0, 0.06);
 
     /* Surface levels (light) */
     --pr-surface-0: var(--pr-surface);
@@ -124,8 +124,9 @@
     --pr-ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
     --pr-ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
 
-    /* Focus outline */
-    --pr-focus-ring: 0 0 0 2px rgba(37, 99, 235, 0.35);
+    /* Focus outline - refined for minimal design */
+    --pr-focus-ring: 0 0 0 1px rgba(37, 99, 235, 0.4),
+      0 0 0 3px rgba(37, 99, 235, 0.15);
 
     /* Overlays & Disabled */
     --pr-overlay-weak: rgba(0, 0, 0, 0.04);
@@ -155,7 +156,7 @@
     --pr-on-success: #ffffff;
 
     --pr-warning: var(--pr-orange-6);
-    --pr-on-warning: #111827;
+    --pr-on-warning: #ffffff;
 
     --pr-danger: var(--pr-red-6);
     --pr-on-danger: #ffffff;
@@ -193,26 +194,28 @@
   :root[data-theme='dark'],
   :root.dark,
   .dark {
-    --pr-bg: #0b1220;
-    --pr-surface: #0f172a;
-    --pr-fg: #e5e7eb;
-    --pr-muted: #9ca3af;
-    --pr-border: #253049;
+    /* Dark theme background and surfaces - deeper, more sophisticated */
+    --pr-bg: var(--pr-gray-900); /* #0d0f10 - deep charcoal */
+    --pr-surface: var(--pr-gray-800); /* #171717 - elevated dark surface */
+    --pr-fg: var(--pr-gray-100); /* #f4f6f8 - soft white text */
+    --pr-muted: var(--pr-gray-400); /* #9aa0a6 - muted text */
+    --pr-border: var(--pr-gray-700); /* #202124 - subtle borders */
 
-    --pr-primary: #60a5fa;
-    --pr-on-primary: #0b1220;
+    /* Professional intent colors (dark mode optimized) */
+    --pr-primary: #2563eb; /* Deeper blue - trustworthy */
+    --pr-on-primary: var(--pr-gray-50); /* High contrast text */
 
-    --pr-success: #22c55e;
-    --pr-on-success: #06220f;
+    --pr-success: #10b981; /* Enhanced forest green for dark */
+    --pr-on-success: var(--pr-gray-50);
 
-    --pr-warning: #f59e0b;
-    --pr-on-warning: #0b1220;
+    --pr-warning: #d97706; /* Warmer amber for dark backgrounds */
+    --pr-on-warning: var(--pr-gray-50);
 
-    --pr-danger: #f87171;
-    --pr-on-danger: #0b1220;
+    --pr-danger: #dc2626; /* Strong medical red for dark */
+    --pr-on-danger: var(--pr-gray-50);
 
-    --pr-info: #818cf8;
-    --pr-on-info: #0b1220;
+    --pr-info: #6366f1; /* Deep indigo for information */
+    --pr-on-info: var(--pr-gray-50);
 
     /* Surface levels (dark) */
     --pr-surface-0: var(--pr-surface);
@@ -224,10 +227,12 @@
     --pr-overlay-weak: rgba(255, 255, 255, 0.06);
     --pr-overlay-strong: rgba(255, 255, 255, 0.12);
 
-    /* Neutral tokens for dark theme */
-    --pr-neutral: var(--pr-gray-700);
-    --pr-on-neutral: var(--pr-gray-100);
-    --pr-neutral-border: var(--pr-gray-600);
+    /* Neutral tokens for dark theme - refined grayscale system */
+    --pr-neutral: var(--pr-gray-700); /* #202124 - subtle neutral background */
+    --pr-on-neutral: var(
+      --pr-gray-100
+    ); /* #f4f6f8 - readable text on neutral */
+    --pr-neutral-border: var(--pr-gray-600); /* #3c4043 - refined border */
     /* Hover/Active semantic tokens (dark) */
     --pr-primary-hover: color-mix(in oklab, var(--pr-primary) 92%, black);
     --pr-primary-active: color-mix(in oklab, var(--pr-primary) 86%, black);
@@ -244,10 +249,11 @@
     --pr-neutral-active: color-mix(in oklab, var(--pr-neutral) 86%, black);
   }
 
-  /* High contrast tweaks */
+  /* High contrast tweaks - enhanced for minimal design */
   :root[data-contrast='high'] {
     --pr-border: var(--pr-gray-400);
-    --pr-focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.5);
+    --pr-focus-ring: 0 0 0 2px rgba(37, 99, 235, 0.6),
+      0 0 0 4px rgba(37, 99, 235, 0.2);
   }
 
   /* Baseline document styles consuming semantic tokens */
