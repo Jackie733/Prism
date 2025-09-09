@@ -15,6 +15,7 @@ const props = withDefaults(
     disabled?: boolean;
     loading?: boolean;
     block?: boolean;
+    iconOnly?: boolean;
     name?: string;
     value?: string | number;
   }>(),
@@ -26,6 +27,7 @@ const props = withDefaults(
     disabled: false,
     loading: false,
     block: false,
+    iconOnly: false,
   }
 );
 
@@ -41,12 +43,19 @@ function onClick(e: MouseEvent) {
 }
 
 const isDisabled = computed(() => props.disabled || props.loading);
+
+const isIconOnly = computed(() => {
+  return props.iconOnly;
+});
 </script>
 
 <template>
   <button
     class="pr-btn"
-    :class="{ 'is-block': block }"
+    :class="{
+      'is-block': block,
+      'is-icon-only': isIconOnly,
+    }"
     :data-variant="variant"
     :data-intent="intent"
     :data-size="size"
@@ -58,27 +67,36 @@ const isDisabled = computed(() => props.disabled || props.loading);
     :aria-busy="loading || undefined"
     @click="onClick"
   >
-    <span
-      v-if="$slots.prefix"
-      class="pr-btn__icon pr-btn__icon--prefix"
-      aria-hidden="true"
-    >
-      <slot name="prefix" />
-    </span>
+    <template v-if="isIconOnly">
+      <span v-if="loading" class="pr-spinner" aria-hidden="true" />
+      <span v-else class="pr-btn__icon" aria-hidden="true">
+        <slot />
+      </span>
+    </template>
 
-    <span v-if="loading" class="pr-spinner" aria-hidden="true" />
+    <template v-else>
+      <span
+        v-if="$slots.prefix"
+        class="pr-btn__icon pr-btn__icon--prefix"
+        aria-hidden="true"
+      >
+        <slot name="prefix" />
+      </span>
 
-    <span class="pr-btn__label">
-      <slot />
-    </span>
+      <span v-if="loading" class="pr-spinner" aria-hidden="true" />
 
-    <span
-      v-if="$slots.suffix"
-      class="pr-btn__icon pr-btn__icon--suffix"
-      aria-hidden="true"
-    >
-      <slot name="suffix" />
-    </span>
+      <span class="pr-btn__label">
+        <slot />
+      </span>
+
+      <span
+        v-if="$slots.suffix"
+        class="pr-btn__icon pr-btn__icon--suffix"
+        aria-hidden="true"
+      >
+        <slot name="suffix" />
+      </span>
+    </template>
   </button>
 </template>
 
@@ -121,6 +139,12 @@ const isDisabled = computed(() => props.disabled || props.loading);
 .pr-btn.is-block {
   display: inline-flex;
   width: 100%;
+}
+
+.pr-btn.is-icon-only {
+  gap: 0;
+  padding: 0;
+  aspect-ratio: 1;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -280,8 +304,13 @@ const isDisabled = computed(() => props.disabled || props.loading);
   border: 2px solid currentColor;
   border-right-color: transparent;
   border-radius: 999px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   animation: pr-spin var(--pr-dur-600) linear infinite;
+}
+
+.pr-btn:not(.is-icon-only) .pr-spinner {
   margin-inline-end: var(--pr-space-2);
 }
 @keyframes pr-spin {

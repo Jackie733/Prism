@@ -30,20 +30,20 @@ pnpm add @jackie733/prism
 
 The library ships ESM and CJS builds. Component CSS is auto-included by bundlers when importing the library; you only need to import the theme tokens once. If your setup does not auto-import CSS, you can also import `@jackie733/prism/style.css` manually.
 
-1) Import theme tokens (required once):
+1. Import theme tokens (required once):
 
 ```ts
 // e.g. main.ts or a global stylesheet entry
 import '@jackie733/prism/themes.css';
 ```
 
-2) Import components where needed:
+2. Import components where needed:
 
 ```ts
 import { Button } from '@jackie733/prism';
 ```
 
-3) Use in templates:
+3. Use in templates:
 
 ```vue
 <script setup lang="ts">
@@ -80,12 +80,6 @@ import { Button } from '@jackie733/prism';
 <html data-theme="dark">
   <!-- app -->
 </html>
-```
-
-- Density: adjust `--pr-density` (`compact` | `cozy` | `spacious`) at any scope.
-
-```css
-:root { --pr-density: compact; }
 ```
 
 ## Packages

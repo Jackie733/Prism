@@ -1,7 +1,7 @@
 /*
  * Prism Tokens
  * - Design tokens for colors, typography, spacing, radii, motion, etc.
- * - Organized as: (1) Primitives, (2) Semantic, (3) Density modes
+ * - Organized as: (1) Primitives, (2) Semantic
  * - Components should prefer semantic tokens; primitives are the foundation.
  */
 @layer tokens {
@@ -63,7 +63,7 @@
     --pr-lh-normal: 1.4;
     --pr-lh-loose: 1.6;
 
-    /* Spacing scale (compact baseline) */
+    /* Spacing scale (baseline) */
     --pr-space-0: 0;
     --pr-space-1: 2px;
     --pr-space-2: 6px;
@@ -172,8 +172,6 @@
     --pr-anim-ease: var(--pr-ease-out-cubic);
     --pr-anim-dur-fast: var(--pr-dur-150);
     --pr-anim-dur-slow: var(--pr-dur-400);
-    /* Density mode flag for runtime toggling */
-    --pr-density: compact; /* compact | cozy | spacious */
 
     /* Hover/Active semantic tokens (light) */
     --pr-primary-hover: color-mix(in oklab, var(--pr-primary) 92%, black);
@@ -292,32 +290,5 @@
       transition-duration: 1ms !important;
       scroll-behavior: auto !important;
     }
-  }
-
-  /* ======================= 3) DENSITY MODES ======================= */
-  /* Switch density by setting data-density on :root (html) */
-  :root[data-density='cozy'] {
-    --pr-ctl-h-sm: 32px;
-    --pr-ctl-h-md: 36px;
-    --pr-ctl-h-lg: 40px;
-
-    --pr-space-2: 8px;
-    --pr-space-3: 12px;
-    --pr-space-4: 16px;
-    --pr-space-5: 20px;
-    --pr-space-6: 24px;
-    --pr-space-7: 28px;
-  }
-  :root[data-density='spacious'] {
-    --pr-ctl-h-sm: 36px;
-    --pr-ctl-h-md: 40px;
-    --pr-ctl-h-lg: 48px;
-
-    --pr-space-2: 10px;
-    --pr-space-3: 14px;
-    --pr-space-4: 18px;
-    --pr-space-5: 22px;
-    --pr-space-6: 26px;
-    --pr-space-7: 30px;
   }
 }

@@ -13,7 +13,7 @@ export default defineConfig({
     nav: [
       { text: 'Guide', link: '/' },
       { text: 'Components', link: '/components/button' },
-      { text: 'Design', link: '/design/density' },
+      { text: 'Design', link: '/design/theme' },
     ],
     sidebar: {
       '/components/': [
@@ -22,7 +22,6 @@ export default defineConfig({
       ],
       '/design/': [
         { text: '自定义主题', link: '/design/theme' },
-        { text: 'Density 密度', link: '/design/density' },
         { text: 'Motion 动效', link: '/design/motion' },
       ],
     },
@@ -31,39 +30,37 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: [
-        ...(
-          useSource
-            ? [
-                {
-                  find: '@jackie733/prism/themes.css',
-                  replacement: fileURLToPath(
-                    new URL(
-                      '../../../packages/tokens/src/themes.css',
-                      import.meta.url
-                    )
-                  ),
-                },
-                {
-                  find: '@jackie733/prism/style.css',
-                  replacement: fileURLToPath(
-                    new URL(
-                      '../../../packages/components/src/style.css',
-                      import.meta.url
-                    )
-                  ),
-                },
-                {
-                  find: '@jackie733/prism',
-                  replacement: fileURLToPath(
-                    new URL(
-                      '../../../packages/components/src/index.ts',
-                      import.meta.url
-                    )
-                  ),
-                },
-              ]
-            : []
-        ),
+        ...(useSource
+          ? [
+              {
+                find: '@jackie733/prism/themes.css',
+                replacement: fileURLToPath(
+                  new URL(
+                    '../../../packages/tokens/src/themes.css',
+                    import.meta.url
+                  )
+                ),
+              },
+              {
+                find: '@jackie733/prism/style.css',
+                replacement: fileURLToPath(
+                  new URL(
+                    '../../../packages/components/src/style.css',
+                    import.meta.url
+                  )
+                ),
+              },
+              {
+                find: '@jackie733/prism',
+                replacement: fileURLToPath(
+                  new URL(
+                    '../../../packages/components/src/index.ts',
+                    import.meta.url
+                  )
+                ),
+              },
+            ]
+          : []),
       ],
     },
     css: {

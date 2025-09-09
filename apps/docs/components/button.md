@@ -54,6 +54,19 @@ import { Button } from '@jackie733/prism'
   </Button>
 </div>
 
+### 纯图标按钮
+
+<div class="demo-row">
+  <Button icon-only>❤️</Button>
+  <Button icon-only variant="outlined">⭐</Button>
+  <Button icon-only variant="minimal">🔍</Button>
+  <Button icon-only size="sm">📝</Button>
+  <Button icon-only size="lg">🚀</Button>
+  <Button icon-only intent="success">✓</Button>
+  <Button icon-only intent="danger">✕</Button>
+  <Button icon-only :loading="true" />
+</div>
+
 <style>
 .demo-row {
   display:flex;
