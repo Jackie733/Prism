@@ -2,10 +2,18 @@
   "name": "prism",
   "private": true,
   "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev:docs": "pnpm -C apps/docs dev",
+    "dev:docs:source": "PRISM_USE_SOURCE=true pnpm -C apps/docs dev",
+    "dev:docs:dist": "pnpm -C packages/components build && pnpm -C packages/components types && PRISM_USE_SOURCE=false pnpm -C apps/docs dev",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.base.json",
     "build": "pnpm -C packages/components run build",
+    "build:all": "pnpm -C packages/tokens run build && pnpm -C packages/core run build && pnpm -C packages/components run build",
     "build:types": "pnpm -C packages/components run types",
+    "types:all": "pnpm -C packages/tokens run types && pnpm -C packages/core run types && pnpm -C packages/components run types",
     "release": "pnpm -C packages/components publish --access public --no-git-checks",
     "lint": "echo \"(add eslint if you want)\" && exit 0"
   },

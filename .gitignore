@@ -4,4 +4,4 @@ dist
 .temp_* 
 .DS_Store
 .vscode
-pnpm-lock.yaml
+**/.vitepress/cache/

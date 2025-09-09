@@ -3,6 +3,7 @@
 基础用法：
 
 <script setup>
+import '@jackie733/prism/themes.css'
 import { Button } from '@jackie733/prism'
 </script>
 

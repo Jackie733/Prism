@@ -1,6 +1,11 @@
 import { defineConfig } from 'vitepress';
 import { fileURLToPath } from 'node:url';
 
+const useSource =
+  process.env.PRISM_USE_SOURCE === '1' ||
+  process.env.PRISM_USE_SOURCE === 'true' ||
+  process.env.NODE_ENV === 'development';
+
 export default defineConfig({
   title: 'Prism UI',
   description: 'Vue component library template',
@@ -25,20 +30,39 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: [
-        // Map CSS export to tokens source first (more specific match)
-        {
-          find: '@jackie733/prism/themes.css',
-          replacement: fileURLToPath(
-            new URL('../../../packages/tokens/src/themes.css', import.meta.url)
-          ),
-        },
-        // Map package entry to components source for local dev
-        {
-          find: '@jackie733/prism',
-          replacement: fileURLToPath(
-            new URL('../../../packages/components/src/index.ts', import.meta.url)
-          ),
-        },
+        ...(
+          useSource
+            ? [
+                {
+                  find: '@jackie733/prism/themes.css',
+                  replacement: fileURLToPath(
+                    new URL(
+                      '../../../packages/tokens/src/themes.css',
+                      import.meta.url
+                    )
+                  ),
+                },
+                {
+                  find: '@jackie733/prism/style.css',
+                  replacement: fileURLToPath(
+                    new URL(
+                      '../../../packages/components/src/style.css',
+                      import.meta.url
+                    )
+                  ),
+                },
+                {
+                  find: '@jackie733/prism',
+                  replacement: fileURLToPath(
+                    new URL(
+                      '../../../packages/components/src/index.ts',
+                      import.meta.url
+                    )
+                  ),
+                },
+              ]
+            : []
+        ),
       ],
     },
     css: {

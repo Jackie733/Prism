@@ -6,6 +6,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "engines": {
+    "node": ">=22"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -17,7 +20,6 @@
     "dist"
   ],
   "sideEffects": false,
-  
   "scripts": {
     "clean": "rimraf dist",
     "build": "tsc -p tsconfig.json",
