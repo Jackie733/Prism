@@ -191,8 +191,10 @@
     --pr-neutral-active: color-mix(in oklab, var(--pr-neutral) 86%, black);
   }
 
-  /* Dark theme overrides */
-  :root[data-theme='dark'] {
+  /* Dark theme overrides (supports html[data-theme='dark'], html.dark, and VitePress .dark) */
+  :root[data-theme='dark'],
+  :root.dark,
+  .dark {
     --pr-bg: #0b1220;
     --pr-surface: #0f172a;
     --pr-fg: #e5e7eb;
