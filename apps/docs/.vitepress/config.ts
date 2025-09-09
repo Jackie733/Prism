@@ -21,6 +21,7 @@ export default defineConfig({
         { text: 'Button 按钮', link: '/components/button' },
       ],
       '/design/': [
+        { text: '自定义主题', link: '/design/theme' },
         { text: 'Density 密度', link: '/design/density' },
         { text: 'Motion 动效', link: '/design/motion' },
       ],
