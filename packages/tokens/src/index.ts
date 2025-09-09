@@ -26,9 +26,41 @@ export const tokens = {
     md: 'var(--pr-fs-md)',
     lg: 'var(--pr-fs-lg)',
     xl: 'var(--pr-fs-xl)',
+    xxl: 'var(--pr-fs-2xl)',
+    xxxl: 'var(--pr-fs-3xl)',
+  },
+  fontWeight: {
+    regular: 'var(--pr-fw-regular)',
+    medium: 'var(--pr-fw-medium)',
+    semibold: 'var(--pr-fw-semibold)',
+    bold: 'var(--pr-fw-bold)',
   },
   motion: {
     duration: 'var(--pr-anim-dur)',
     easing: 'var(--pr-anim-ease)',
+    fast: 'var(--pr-anim-dur-fast)',
+    slow: 'var(--pr-anim-dur-slow)',
+  },
+  border: {
+    weak: 'var(--pr-border-weak)',
+    strong: 'var(--pr-border-strong)',
+    w1: 'var(--pr-border-w-1)',
+    w2: 'var(--pr-border-w-2)',
+  },
+  surface: {
+    0: 'var(--pr-surface-0)',
+    1: 'var(--pr-surface-1)',
+    2: 'var(--pr-surface-2)',
+    3: 'var(--pr-surface-3)',
+  },
+  overlay: {
+    weak: 'var(--pr-overlay-weak)',
+    strong: 'var(--pr-overlay-strong)',
+    tintWeak: 'var(--pr-tint-alpha-weak)',
+    tintStrong: 'var(--pr-tint-alpha-strong)',
+  },
+  state: {
+    disabledOpacity: 'var(--pr-disabled-opacity)',
+    disabledCursor: 'var(--pr-disabled-cursor)',
   },
 };

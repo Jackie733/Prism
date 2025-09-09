@@ -46,7 +46,7 @@ export default [
       {
         name: 'header-and-style-import',
         renderChunk(code, chunk, outputOptions) {
-          const header = '/* @prism/components */\n';
+          const header = '/* @jackie733/prism */\n';
           if (outputOptions.format === 'es') {
             return header + "import './themes.css';\n" + code;
           }

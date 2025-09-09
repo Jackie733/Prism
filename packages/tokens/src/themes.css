@@ -1,6 +1,13 @@
+/*
+ * Prism Tokens
+ * - Design tokens for colors, typography, spacing, radii, motion, etc.
+ * - Organized as: (1) Primitives, (2) Semantic, (3) Density modes
+ * - Components should prefer semantic tokens; primitives are the foundation.
+ */
 @layer tokens {
   /* ========================= 1) PRIMITIVES ========================= */
   :root {
+    /* Grayscale (neutral foundation) */
     --pr-gray-50: #f8fafc;
     --pr-gray-100: #f1f5f9;
     --pr-gray-200: #e5e7eb;
@@ -12,6 +19,7 @@
     --pr-gray-800: #1f2937;
     --pr-gray-900: #0b1220;
 
+    /* Accent hues (brand palette mid tones) */
     --pr-red-6: #ef4444;
     --pr-orange-6: #f59e0b;
     --pr-yellow-6: #eab308;
@@ -24,22 +32,38 @@
     --pr-violet-6: #7c3aed;
     --pr-magenta-6: #db2777;
 
+    /* Font stacks */
     --pr-font-sans: ui-sans-serif, -apple-system, Segoe UI, Roboto,
       'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', 'Segoe UI Emoji',
       'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
     --pr-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
       'Liberation Mono', 'Courier New', monospace;
 
+    /* Font sizes (base scale for UI/text) */
     --pr-fs-xs: 12px;
     --pr-fs-sm: 13px;
     --pr-fs-md: 14px;
     --pr-fs-lg: 16px;
     --pr-fs-xl: 18px;
+    --pr-fs-2xl: 20px;
+    --pr-fs-3xl: 24px;
 
+    /* Font weights & letter spacing */
+    --pr-fw-regular: 400;
+    --pr-fw-medium: 500;
+    --pr-fw-semibold: 600;
+    --pr-fw-bold: 700;
+
+    --pr-tracking-tight: -0.01em;
+    --pr-tracking-normal: 0;
+    --pr-tracking-wide: 0.02em;
+
+    /* Line heights (typographic rhythm) */
     --pr-lh-tight: 1.25;
     --pr-lh-normal: 1.4;
     --pr-lh-loose: 1.6;
 
+    /* Spacing scale (compact baseline) */
     --pr-space-0: 0;
     --pr-space-1: 2px;
     --pr-space-2: 6px;
@@ -49,22 +73,35 @@
     --pr-space-6: 22px;
     --pr-space-7: 26px;
 
+    /* Control heights (component size baseline) */
     --pr-ctl-h-sm: 28px;
     --pr-ctl-h-md: 32px;
     --pr-ctl-h-lg: 36px;
 
+    /* Radii (rounded corners) */
     --pr-radius-sm: 2px;
     --pr-radius-md: 4px;
     --pr-radius-lg: 8px;
 
+    /* Borders */
     --pr-border-weak: 1px solid var(--pr-gray-300);
     --pr-border-strong: 1px solid var(--pr-gray-400);
+    --pr-border-w-1: 1px;
+    --pr-border-w-2: 2px;
 
+    /* Elevation (shadows) */
     --pr-shadow-0: none;
     --pr-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.08);
     --pr-shadow-2: 0 6px 18px rgba(2, 6, 23, 0.12);
     --pr-shadow-3: 0 10px 32px rgba(2, 6, 23, 0.18);
 
+    /* Surface levels (light) */
+    --pr-surface-0: var(--pr-surface);
+    --pr-surface-1: color-mix(in oklab, var(--pr-surface) 96%, black);
+    --pr-surface-2: color-mix(in oklab, var(--pr-surface) 92%, black);
+    --pr-surface-3: color-mix(in oklab, var(--pr-surface) 88%, black);
+
+    /* Layer ordering */
     --pr-z-base: 0;
     --pr-z-sticky: 100;
     --pr-z-dropdown: 1000;
@@ -72,6 +109,7 @@
     --pr-z-popover: 1200;
     --pr-z-toast: 1300;
 
+    /* Motion durations */
     --pr-dur-100: 100ms;
     --pr-dur-150: 150ms;
     --pr-dur-200: 200ms;
@@ -80,24 +118,36 @@
     --pr-dur-400: 400ms;
     --pr-dur-600: 600ms;
 
+    /* Motion easings */
     --pr-ease-linear: linear;
     --pr-ease: ease;
     --pr-ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
     --pr-ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
 
+    /* Focus outline */
     --pr-focus-ring: 0 0 0 2px rgba(37, 99, 235, 0.35);
+
+    /* Overlays & Disabled */
+    --pr-overlay-weak: rgba(0, 0, 0, 0.04);
+    --pr-overlay-strong: rgba(0, 0, 0, 0.08);
+    --pr-disabled-opacity: 0.6;
+    --pr-disabled-cursor: not-allowed;
+
+    /* Tint percentages for outline/minimal variants */
+    --pr-tint-alpha-weak: 12%;
+    --pr-tint-alpha-strong: 18%;
   }
 
   /* =========================== 2) SEMANTIC =========================== */
   :root {
     color-scheme: light dark;
-
+    /* Global semantic surfaces & text */
     --pr-bg: var(--pr-gray-50);
     --pr-surface: #ffffff;
     --pr-fg: var(--pr-gray-900);
     --pr-muted: var(--pr-gray-500);
     --pr-border: var(--pr-gray-300);
-
+    /* Brand intents (foreground on background) */
     --pr-primary: var(--pr-blue-6);
     --pr-on-primary: #ffffff;
 
@@ -117,10 +167,12 @@
     --pr-neutral: var(--pr-gray-200);
     --pr-on-neutral: var(--pr-gray-800);
     --pr-neutral-border: var(--pr-gray-300);
-
+    /* Motion defaults (semantic) */
     --pr-anim-dur: var(--pr-dur-250);
     --pr-anim-ease: var(--pr-ease-out-cubic);
-
+    --pr-anim-dur-fast: var(--pr-dur-150);
+    --pr-anim-dur-slow: var(--pr-dur-400);
+    /* Density mode flag for runtime toggling */
     --pr-density: compact; /* compact | cozy | spacious */
 
     /* Hover/Active semantic tokens (light) */
@@ -139,6 +191,7 @@
     --pr-neutral-active: color-mix(in oklab, var(--pr-neutral) 86%, black);
   }
 
+  /* Dark theme overrides */
   :root[data-theme='dark'] {
     --pr-bg: #0b1220;
     --pr-surface: #0f172a;
@@ -161,6 +214,16 @@
     --pr-info: #818cf8;
     --pr-on-info: #0b1220;
 
+    /* Surface levels (dark) */
+    --pr-surface-0: var(--pr-surface);
+    --pr-surface-1: color-mix(in oklab, var(--pr-surface) 92%, white);
+    --pr-surface-2: color-mix(in oklab, var(--pr-surface) 88%, white);
+    --pr-surface-3: color-mix(in oklab, var(--pr-surface) 84%, white);
+
+    /* Overlays */
+    --pr-overlay-weak: rgba(255, 255, 255, 0.06);
+    --pr-overlay-strong: rgba(255, 255, 255, 0.12);
+
     /* Neutral tokens for dark theme */
     --pr-neutral: var(--pr-gray-700);
     --pr-on-neutral: var(--pr-gray-100);
@@ -181,11 +244,13 @@
     --pr-neutral-active: color-mix(in oklab, var(--pr-neutral) 86%, black);
   }
 
+  /* High contrast tweaks */
   :root[data-contrast='high'] {
     --pr-border: var(--pr-gray-400);
     --pr-focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.5);
   }
 
+  /* Baseline document styles consuming semantic tokens */
   html,
   body {
     background: var(--pr-bg);
@@ -199,6 +264,7 @@
     box-shadow: var(--pr-focus-ring);
   }
 
+  /* Optional helper: smoother hover transitions on capable devices */
   @media (hover: hover) and (pointer: fine) {
     .pr-hover {
       transition: background-color var(--pr-dur-200) var(--pr-ease),
@@ -207,6 +273,7 @@
     }
   }
 
+  /* Respect reduced motion: collapse animations globally */
   @media (prefers-reduced-motion: reduce) {
     :root {
       --pr-anim-dur: 1ms;
@@ -223,5 +290,32 @@
       transition-duration: 1ms !important;
       scroll-behavior: auto !important;
     }
+  }
+
+  /* ======================= 3) DENSITY MODES ======================= */
+  /* Switch density by setting data-density on :root (html) */
+  :root[data-density='cozy'] {
+    --pr-ctl-h-sm: 32px;
+    --pr-ctl-h-md: 36px;
+    --pr-ctl-h-lg: 40px;
+
+    --pr-space-2: 8px;
+    --pr-space-3: 12px;
+    --pr-space-4: 16px;
+    --pr-space-5: 20px;
+    --pr-space-6: 24px;
+    --pr-space-7: 28px;
+  }
+  :root[data-density='spacious'] {
+    --pr-ctl-h-sm: 36px;
+    --pr-ctl-h-md: 40px;
+    --pr-ctl-h-lg: 48px;
+
+    --pr-space-2: 10px;
+    --pr-space-3: 14px;
+    --pr-space-4: 18px;
+    --pr-space-5: 22px;
+    --pr-space-6: 26px;
+    --pr-space-7: 30px;
   }
 }

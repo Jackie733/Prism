@@ -39,13 +39,6 @@ export default defineConfig({
             new URL('../../../packages/components/src/index.ts', import.meta.url)
           ),
         },
-        // Keep legacy internal alias if referenced somewhere
-        {
-          find: '@prism/components',
-          replacement: fileURLToPath(
-            new URL('../../../packages/components/src/index.ts', import.meta.url)
-          ),
-        },
       ],
     },
     css: {

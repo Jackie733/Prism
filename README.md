@@ -17,30 +17,10 @@ A batteries-included starter for building a Vue 3 + TypeScript component library
 ```bash
 pnpm i
 pnpm dev:docs     # run docs at http://localhost:5173
-pnpm build        # build all packages
+pnpm build        # build the public package (@jackie733/prism)
 ```
 
-## Publish to npm
-
-This repo ships one public package: `@jackie733/prism` (components + CSS tokens export). Internal packages `packages/tokens` and `packages/core` are for development only.
-
-1) Build artifacts
-
-```bash
-pnpm build && pnpm build:types
-```
-
-2) Login and publish (public access)
-
-```bash
-# login once
-pnpm npm login
-
-# publish the components package only
-pnpm -C packages/components publish --access public --no-git-checks
-```
-
-Consumers can then install packages, e.g.:
+## Usage
 
 ```bash
 pnpm add @jackie733/prism
@@ -49,7 +29,6 @@ pnpm add @jackie733/prism
 And in app entry:
 
 ```ts
-import '@jackie733/prism/themes.css';
 import { Button } from '@jackie733/prism';
 ```
 

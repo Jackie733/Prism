@@ -11,4 +11,4 @@ pnpm i
 pnpm dev:docs
 ```
 
-The docs site aliases `@prism/components` to source files so you can develop instantly without pre-building the library.
+The docs site aliases `@jackie733/prism` to source files so you can develop instantly without pre-building the library.
