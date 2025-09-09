@@ -1,37 +1,19 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { type ButtonProps, type ButtonEmits } from './types';
 
-type Variant = 'solid' | 'outlined' | 'minimal';
-type Intent = 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'none';
-type Size = 'sm' | 'md' | 'lg';
-type BtnType = 'button' | 'submit' | 'reset';
+const props = withDefaults(defineProps<ButtonProps>(), {
+  variant: 'solid',
+  intent: 'primary',
+  size: 'md',
+  type: 'button',
+  disabled: false,
+  loading: false,
+  block: false,
+  iconOnly: false,
+});
 
-const props = withDefaults(
-  defineProps<{
-    variant?: Variant;
-    intent?: Intent;
-    size?: Size;
-    type?: BtnType;
-    disabled?: boolean;
-    loading?: boolean;
-    block?: boolean;
-    iconOnly?: boolean;
-    name?: string;
-    value?: string | number;
-  }>(),
-  {
-    variant: 'solid',
-    intent: 'primary',
-    size: 'md',
-    type: 'button',
-    disabled: false,
-    loading: false,
-    block: false,
-    iconOnly: false,
-  }
-);
-
-const emit = defineEmits<{ (e: 'click', ev: MouseEvent): void }>();
+const emit = defineEmits<ButtonEmits>();
 
 function onClick(e: MouseEvent) {
   if (props.disabled || props.loading) {
